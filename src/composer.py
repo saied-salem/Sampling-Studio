@@ -10,6 +10,9 @@ from Sinusoidal_wave import Sinusoidal_wave
 
 
 class Composer(QtWidgets.QWidget):
+
+    to_sampling_process = qtc.pyqtSignal(list, list,float)
+
     def __init__(self):
         self.NUM_OF_POINTS = 1000
         super().__init__()
@@ -20,7 +23,9 @@ class Composer(QtWidgets.QWidget):
         self.Componant_canvas_layout.addWidget(self.componant_canvas  )
         self.time = np.linspace(0, 5, self.NUM_OF_POINTS)
         self.sinusoidals_componants=[]
+        self.saved_composed_signals=[]
 
+        self.Sample_button = self.findChild(QtWidgets.QPushButton,"Sample_button")
 
 
         self.signals_and_slots_connection()
@@ -29,6 +34,9 @@ class Composer(QtWidgets.QWidget):
     def signals_and_slots_connection(self):
         self.Add_button.clicked.connect(self.add_componant)
         self.Delete_button.clicked.connect(self.delete_component)
+        self.Save_signal_button.clicked.connect(self.save_composed_signal)
+        self.Sample_button.clicked.connect(self.start_sampling)
+
 
     def add_componant(self):
         print("on addddddddd")
@@ -59,10 +67,10 @@ class Composer(QtWidgets.QWidget):
 
     def get_composed_signal(self):
         composed_signal = np.zeros(len(self.time))
-        print(composed_signal)
+        # print(composed_signal)
         for sinusoidal in self.sinusoidals_componants:
             composed_signal+=sinusoidal.get_values()
-        print(composed_signal)
+        # print(composed_signal)
         return composed_signal
 
     def delete_component(self):
@@ -71,3 +79,25 @@ class Composer(QtWidgets.QWidget):
         self.sinusoidals_componants.remove(self.sinusoidals_componants[curr_idx])
         self.update_composer_graph()
         self.componant_box.removeItem(curr_idx)
+
+    def save_composed_signal(self):
+        curr_composed_signal = self.get_composed_signal()
+        self.saved_composed_signals.append(curr_composed_signal)
+        self.Composed_Signals_box.addItem("Signal : {No_signal}".format(No_signal = len(self.saved_composed_signals)))
+
+    def get_fmax(self):
+        freq_list = [sinusoidal.get_freq() for sinusoidal in self.sinusoidals_componants]
+        return max(freq_list)
+
+    def start_sampling(self):
+        curr_Composed_Signals_box_index = self.Composed_Signals_box.currentIndex()
+        print(curr_Composed_Signals_box_index)
+        print(self.saved_composed_signals)
+        curr_composed_signal=self.saved_composed_signals[curr_Composed_Signals_box_index]
+        max_freq= self.get_fmax()
+        time =self.time.tolist()
+        values =curr_composed_signal.tolist()
+        self.to_sampling_process.emit(time,values,max_freq)
+        print("emitting signal ")
+
+
