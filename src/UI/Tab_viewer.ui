@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TabWidget</class>
+ <widget class="QTabWidget" name="TabWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TabWidget</string>
+  </property>
+  <property name="currentIndex">
+   <number>1</number>
+  </property>
+  <widget class="QWidget" name="sampler_tab">
+   <attribute name="title">
+    <string>Sampler</string>
+   </attribute>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="Sampler_layout"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="composer_tap">
+   <attribute name="title">
+    <string>Composer</string>
+   </attribute>
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <item>
+     <layout class="QVBoxLayout" name="Composer_layout"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="Loaded_signal_sampler_tab">
+   <attribute name="title">
+    <string>Loaded_signal_sampler</string>
+   </attribute>
+   <layout class="QVBoxLayout" name="verticalLayout_6">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_5"/>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
