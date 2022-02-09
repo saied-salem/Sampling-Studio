@@ -54,12 +54,12 @@
 </string>
           </property>
           <property name="text">
-           <string>Load signal file</string>
+           <string>Load signal CSV_File</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="CSV_load_button">
           <property name="text">
            <string>Load</string>
           </property>
