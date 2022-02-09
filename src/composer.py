@@ -1,8 +1,10 @@
 import numpy as np
+import pandas as pd
 import qdarkstyle
 from PyQt5 import QtWidgets
 from PyQt5 import QtCore as qtc
 from PyQt5 import uic
+from PyQt5.QtWidgets import QFileDialog
 
 from Composer_canvas import Composer_canvas
 from componants_canvas import Componants_canvas
@@ -36,6 +38,7 @@ class Composer(QtWidgets.QWidget):
         self.Delete_button.clicked.connect(self.delete_component)
         self.Save_signal_button.clicked.connect(self.save_composed_signal)
         self.Sample_button.clicked.connect(self.start_sampling)
+
 
 
     def add_componant(self):
@@ -99,5 +102,4 @@ class Composer(QtWidgets.QWidget):
         values =curr_composed_signal.tolist()
         self.to_sampling_process.emit(time,values,max_freq)
         print("emitting signal ")
-
 
