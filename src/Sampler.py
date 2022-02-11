@@ -49,15 +49,15 @@ class Sampler(QtWidgets.QWidget):
 
     def sample_signal(self):
         values = np.array(self.values)
-        print("inside sample")
+        # print("inside sample")
 
         factor = (self.Freq_rate_slider.value()/10)
         self.Slider_lable.setText("{F_max}F-max".format(F_max = factor))
         sampling_freq =factor*self.max_freq
-        print("sampling_freq sample")
+        # print("sampling_freq sample")
         sampled_time_points = np.arange(self.time[0],self.time[-1],1/sampling_freq)
 
-        print((self.values))
+        # print((self.values))
         sampled_values_points= values[np.searchsorted(self.time,sampled_time_points)]
 
         reconstructed_signal = self.reconstruct_signal(sampled_values_points,len(self.time))
@@ -79,7 +79,7 @@ class Sampler(QtWidgets.QWidget):
         self.sampel_and_reco_canvas.plot_final_reconstructed_signal(self.time,reconstructed_signal)
 
     def toggel_visability_second_axes(self):
-        print("iiiiiiiiiiiiiiiii")
+        # print("iiiiiiiiiiiiiiiii")
         self.sampel_and_reco_canvas.toggel_visability_second_axes()
 
 

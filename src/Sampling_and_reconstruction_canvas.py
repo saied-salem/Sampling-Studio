@@ -50,7 +50,7 @@ class Sampling_and_reconstruction_canvas(FigureCanvas):
     def toggel_visability_second_axes(self):
         self.visible = not self.visible
         self.axes2.set_visible(self.visible)
-        print("ttttttttttt")
+        # print("ttttttttttt")
 
         if self.visible:
             self.axes1.set_position(self.gs[0].get_position(self.fig))
