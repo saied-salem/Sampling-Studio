@@ -36,16 +36,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="Loaded_signal_sampler_tab">
-   <attribute name="title">
-    <string>Loaded_signal_sampler</string>
-   </attribute>
-   <layout class="QVBoxLayout" name="verticalLayout_6">
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout_5"/>
-    </item>
-   </layout>
-  </widget>
  </widget>
  <resources/>
  <connections/>

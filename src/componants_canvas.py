@@ -30,3 +30,7 @@ class Componants_canvas(FigureCanvas):
         self.axes.lines.remove(self.axes.lines[index])
         self.axes.legend(loc='upper left')
         self.draw()
+
+    def clear_canvans(self):
+        self.axes.clear()
+        self.draw()
