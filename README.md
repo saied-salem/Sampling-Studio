@@ -3,5 +3,7 @@
 ## Demos
 
 ### Reconstruction Demo 
-![volume](./doc/videos/Project_composer_part.gif)
+![Composer](doc/videos/Project_composer_part.gif)
+
+![Sampler](./doc/videos/Project_composer_part.gif)
 
